@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ko"  xmlns:th = "https://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container">
+    <h1>클라우드 과정 명단</h1>
+    <table class="table table-bordered text-center">
+        <thead>
+        <tr>
+            <th>번호</th>
+            <th>이름</th>
+            <th>성별</th>
+            <th>나이</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- 객체 바인딩 해놓은 List 가져와서 출력하기 -->
+        <!-- thymeleaf는 태그의 속성을 이용해서 control -->
+        <!-- \${이름} : jsp에서는 scope 구분을 안했었음! thymeleaf는 request 영역에서만 꺼낼 수 있음 -->
+        <!-- \${session.이름} -->
+        <tr th:each="vo:${list}">
+            <!-- prototype 제작에 효과적이다! front 개발자도 볼 때 편하다! -->
+            <td th:text = "${vo.id}">번호</td>
+            <td th:text = "${vo.name}">이름</td>
+            <td th:text = "${vo.gender}">성별</td>
+            <td th:text = "${vo.age}"/>
+            <!-- th:속성명 : 해당하는 속성에 값을 집어넣겠다. -->
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>
