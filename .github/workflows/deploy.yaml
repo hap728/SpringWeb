@@ -36,7 +36,7 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Build JAR with Gradle
-        run: ./gradlew clean bootJar c-x test
+        run: ./gradlew clean bootJar -x test
 
         # JAR 파일을 복사해서 퍼블릭 서버로 전달
       - name: Copy JAR to Public Server
